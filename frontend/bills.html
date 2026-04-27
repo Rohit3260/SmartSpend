@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bills - SmartSpend</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="income.html">Extra Income</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="bills.html" class="active">Bills</a>
+          <a href="goals.html">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html"><span id="sidebarName">User</span></a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOP -->
+        <div class="topbar">
+          <div>
+            <h1>Bills</h1>
+            <p>Manage your upcoming payments</p>
+          </div>
+        </div>
+
+        <!-- ALERT -->
+        <div id="alertBox" class="alert hidden"></div>
+
+        <!-- FORM -->
+        <div class="form-box">
+          <h2>Add Bill</h2>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Bill Name</label>
+              <input type="text" id="billName" />
+              <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="field">
+              <label>Amount</label>
+              <input type="number" id="billAmount" />
+              <span class="error" id="amountError"></span>
+            </div>
+
+            <div class="field">
+              <label>Category</label>
+              <select id="billCategory">
+                <option value="">Select</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Water">Water</option>
+                <option value="Internet">Internet</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Rent">Rent</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Subscription">Subscription</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="error" id="categoryError"></span>
+            </div>
+
+            <div class="field">
+              <label>Due Date</label>
+              <input type="date" id="billDueDate" />
+              <span class="error" id="dueDateError"></span>
+            </div>
+
+            <div class="field">
+              <label>Recurring</label>
+              <select id="billRecurring">
+                <option value="none">Not Recurring</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Note</label>
+              <input type="text" id="billNote" />
+            </div>
+          </div>
+
+          <button id="addBillBtn">Add Bill</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-box">
+          <div class="table-top">
+            <h2>All Bills</h2>
+
+            <div>
+              <label>Show</label>
+              <select id="filterBills">
+                <option value="all">All</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="noBills" class="empty-msg">No bills yet.</p>
+
+          <table id="billTable" class="hidden">
+            <thead>
+              <tr>
+                <th>Bill Name</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Due Date</th>
+                <th>Recurring</th>
+                <th>Note</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="billBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="bottom-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="bills.html" class="active">Bills</a>
+      <a href="goals.html">Goals</a>
+      <a href="borrow.html">Borrow</a>
+      <a href="income.html">Income</a>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/bills.js"></script>
+  </body>
+</html>

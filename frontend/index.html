@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartSpend</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="auth-page">
+    <div class="container" id="mainContainer">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <!-- LOGIN -->
+          <form class="sign-in-form" id="loginForm">
+            <h2 class="title">SmartSpend</h2>
+
+            <div id="loginAlert" class="auth-alert"></div>
+
+            <div class="input-field">
+              <input type="email" id="loginEmail" placeholder="Email" />
+            </div>
+            <span class="error-msg" id="loginEmailError"></span>
+
+            <div class="input-field">
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+              />
+            </div>
+            <span class="error-msg" id="loginPasswordError"></span>
+
+            <span
+              id="forgotLink"
+              style="cursor: pointer; color: #3498db; font-size: 13px"
+            >
+              Forgot password?
+            </span>
+
+            <button type="submit" class="btn">Login</button>
+
+            <p class="switch-text">
+              No account?
+              <button type="button" id="goToRegister" class="link-btn">
+                Register
+              </button>
+            </p>
+          </form>
+
+          <!-- REGISTER -->
+          <form class="sign-up-form" id="registerForm">
+            <h2 class="title">Register</h2>
+
+            <div id="registerAlert" class="auth-alert"></div>
+
+            <div class="input-field">
+              <input type="text" id="registerName" placeholder="Name" />
+            </div>
+            <span class="error-msg" id="registerNameError"></span>
+
+            <div class="input-field">
+              <input type="email" id="registerEmail" placeholder="Email" />
+            </div>
+            <span class="error-msg" id="registerEmailError"></span>
+
+            <div class="input-field">
+              <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password"
+              />
+            </div>
+            <span class="error-msg" id="registerPasswordError"></span>
+
+            <button type="submit" class="btn">Register</button>
+
+            <p class="switch-text">
+              Have an account?
+              <button type="button" id="goToLogin" class="link-btn">
+                Login
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var c = document.getElementById("mainContainer");
+
+        document.getElementById("goToRegister").onclick = function () {
+          c.classList.add("sign-up-mode");
+        };
+
+        document.getElementById("goToLogin").onclick = function () {
+          c.classList.remove("sign-up-mode");
+        };
+        // after updating reset password feature
+        // document.getElementById("forgotLink").onclick = function () {
+        //   window.location.href = "forgot.html";
+        // };
+        document.getElementById("forgotLink").onclick = function () {
+          alert("Forgot password feature coming soon");
+        };
+      });
+    </script>
+  </body>
+</html>

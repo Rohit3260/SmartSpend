@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="main" style="max-width: 400px; margin: 50px auto">
+      <h2>Forgot Password</h2>
+
+      <div class="field">
+        <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        <span class="error" id="forgotEmailError"></span>
+      </div>
+
+      <button id="forgotBtn">Send Reset Link</button>
+
+      <div id="forgotAlert"></div>
+
+      <p style="margin-top: 10px">
+        <a href="index.html">Back to Login</a>
+      </p>
+    </div>
+
+    <script src="js/config.js"></script>
+
+    <script>
+      document.getElementById("forgotBtn").onclick = async function () {
+        var email = document.getElementById("forgotEmail").value;
+
+        if (!email) {
+          document.getElementById("forgotEmailError").textContent =
+            "Email required";
+          return;
+        }
+
+        try {
+          var res = await fetch(BASE_URL + "/api/auth/forgot-password", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+
+          var data = await res.json();
+
+          if (res.ok) {
+            document.getElementById("forgotAlert").innerHTML =
+              "Click here: <a href='" +
+              data.resetLink +
+              "' target='_blank'>Reset Password</a>";
+          } else {
+            document.getElementById("forgotAlert").textContent = data.message;
+          }
+        } catch {
+          document.getElementById("forgotAlert").textContent = "Server error";
+        }
+      };
+    </script>
+  </body>
+</html>

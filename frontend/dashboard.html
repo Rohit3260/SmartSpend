@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — SmartSpend</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="income.html">Extra Income</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="bills.html">Bills</a>
+          <a href="goals.html">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html"><span id="sidebarName">User</span></a>
+          <button id="logoutBtnDesktop">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p>
+              Welcome, <strong id="welcomeName">User</strong> •
+              <span id="currentDate"></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+          <div class="card">
+            <p>Total Balance</p>
+            <h3 id="totalIncome">₹0</h3>
+          </div>
+          <div class="card">
+            <p>Total Expenses</p>
+            <h3 id="totalExpenses">₹0</h3>
+          </div>
+          <div class="card">
+            <p>This Month</p>
+            <h3 id="monthSpent">₹0</h3>
+          </div>
+          <div class="card">
+            <p>Savings Goal</p>
+            <h3 id="savingsGoal">₹0</h3>
+          </div>
+          <div class="card">
+            <p>Remaining</p>
+            <h3 id="remaining">₹0</h3>
+          </div>
+          <div class="card">
+            <p>Bills Due</p>
+            <h3 id="billsDue">₹0</h3>
+          </div>
+          <div class="card">
+            <p>To Receive</p>
+            <h3 id="pendingReceive">₹0</h3>
+          </div>
+          <div class="card">
+            <p>To Return</p>
+            <h3 id="pendingReturn">₹0</h3>
+          </div>
+        </div>
+
+        <!-- CHART -->
+        <div class="charts">
+          <div class="chart-box">
+            <h3>Expense Overview</h3>
+
+            <div class="chart-toggle">
+              <button id="showBar">Bar</button>
+              <button id="showPie">Pie</button>
+            </div>
+
+            <canvas id="barChart"></canvas>
+            <canvas id="pieChart" class="hidden"></canvas>
+          </div>
+
+          <div class="chart-box">
+            <h3>Recent Transactions</h3>
+            <div id="recentList">
+              <p>No expenses yet.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BILLS -->
+        <div class="table-box">
+          <h3>Upcoming Bills</h3>
+          <div id="upcomingBills">
+            <p>No upcoming bills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATE SCRIPT -->
+    <script>
+      const d = new Date();
+      document.getElementById("currentDate").textContent = d.toDateString();
+    </script>
+
+    <script src="js/config.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

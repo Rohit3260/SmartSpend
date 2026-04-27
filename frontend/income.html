@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extra Income - SmartSpend</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="income.html" class="active">Extra Income</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="bills.html">Bills</a>
+          <a href="goals.html">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html"><span id="sidebarName">User</span></a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <div>
+            <h1>Extra Income</h1>
+            <p>Track your additional income</p>
+          </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="cards">
+          <div class="card">
+            <p>Total Extra Income</p>
+            <h3 id="totalIncome">₹0</h3>
+          </div>
+
+          <div class="card">
+            <p>This Month</p>
+            <h3 id="monthIncome">₹0</h3>
+          </div>
+
+          <div class="card">
+            <p>Total Entries</p>
+            <h3 id="totalEntries">0</h3>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-box">
+          <h2>Add Income</h2>
+
+          <div id="alertBox" class="alert hidden"></div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Title</label>
+              <input type="text" id="incTitle" />
+              <span class="error" id="titleError"></span>
+            </div>
+
+            <div class="field">
+              <label>Amount</label>
+              <input type="number" id="incAmount" />
+              <span class="error" id="amountError"></span>
+            </div>
+
+            <div class="field">
+              <label>Source</label>
+              <select id="incSource">
+                <option value="">Select</option>
+                <option value="Gift">Gift</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Sale">Sale</option>
+                <option value="Bonus">Bonus</option>
+                <option value="Cashback">Cashback</option>
+                <option value="Investment">Investment</option>
+                <option value="Family">Family</option>
+                <option value="Friend">Friend</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="error" id="sourceError"></span>
+            </div>
+
+            <div class="field">
+              <label>Date</label>
+              <input type="date" id="incDate" />
+              <span class="error" id="dateError"></span>
+            </div>
+
+            <div class="field">
+              <label>Note</label>
+              <input type="text" id="incNote" />
+            </div>
+          </div>
+
+          <button id="addIncomeBtn">Add Income</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-box">
+          <div class="table-top">
+            <h2>Income History</h2>
+
+            <div>
+              <label>Sort</label>
+              <select id="sortBy">
+                <option value="date-desc">Newest</option>
+                <option value="date-asc">Oldest</option>
+                <option value="amount-desc">High to Low</option>
+                <option value="amount-asc">Low to High</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="noIncome">No income yet.</p>
+
+          <table id="incomeTable" class="hidden">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Source</th>
+                <th>Date</th>
+                <th>Note</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="incomeBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/income.js"></script>
+  </body>
+</html>

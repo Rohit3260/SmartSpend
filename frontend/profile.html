@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - SmartSpend</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="income.html">Extra Income</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="bills.html">Bills</a>
+          <a href="goals.html">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html" class="active">
+            <span id="sidebarName">User</span>
+          </a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOP -->
+        <div class="topbar">
+          <div>
+            <h1>Profile</h1>
+            <p>Update your personal details</p>
+          </div>
+        </div>
+
+        <!-- ALERT -->
+        <div id="alertBox" class="alert hidden"></div>
+
+        <!-- FORM -->
+        <div class="form-box">
+          <form id="profileForm" novalidate>
+            <div class="form-grid">
+              <!-- Name -->
+              <div class="field">
+                <label>Full Name</label>
+                <input type="text" id="profileName" />
+                <span class="error" id="nameError"></span>
+              </div>
+
+              <!-- Email -->
+              <div class="field">
+                <label>Email</label>
+                <input type="email" id="profileEmail" />
+                <span class="error" id="emailError"></span>
+              </div>
+
+              <!-- Phone -->
+              <div class="field">
+                <label>Phone</label>
+                <input type="tel" id="profilePhone" maxlength="10" />
+                <span class="error" id="phoneError"></span>
+              </div>
+
+              <!-- Gender -->
+              <div class="field">
+                <label>Gender</label>
+                <select id="profileGender">
+                  <option value="">Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="error" id="genderError"></span>
+              </div>
+
+              <!-- DOB -->
+              <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" id="profileDob" />
+                <span class="error" id="dobError"></span>
+              </div>
+
+              <!-- City -->
+              <div class="field">
+                <label>City</label>
+                <input type="text" id="profileCity" />
+                <span class="error" id="cityError"></span>
+              </div>
+
+              <!-- Profession -->
+              <div class="field">
+                <label>Profession</label>
+                <select id="profileProfession">
+                  <option value="">Select</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="private_employee">Private Employee</option>
+                  <option value="government_employee">
+                    Government Employee
+                  </option>
+                  <option value="freelancer">Freelancer</option>
+                  <option value="business_owner">Business Owner</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="error" id="professionError"></span>
+              </div>
+
+              <!-- Salary -->
+              <div class="field">
+                <label>Monthly Income</label>
+                <input type="number" id="profileSalary" min="0" />
+                <span class="error" id="salaryError"></span>
+              </div>
+            </div>
+
+            <button type="submit" id="saveProfileBtn">Save & Continue</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

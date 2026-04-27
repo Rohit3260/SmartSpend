@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goals - SmartSpend</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="income.html">Extra Income</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="bills.html">Bills</a>
+          <a href="goals.html" class="active">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html"><span id="sidebarName">User</span></a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOP -->
+        <div class="topbar">
+          <div>
+            <h1>Goals</h1>
+            <p>Track your savings goals</p>
+          </div>
+        </div>
+
+        <!-- ALERT -->
+        <div id="alertBox" class="alert hidden"></div>
+
+        <!-- FORM -->
+        <div class="form-box">
+          <h2>Add Goal</h2>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Goal Name</label>
+              <input type="text" id="goalName" />
+              <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="field">
+              <label>Target Amount</label>
+              <input type="number" id="goalTarget" />
+              <span class="error" id="targetError"></span>
+            </div>
+
+            <div class="field">
+              <label>Saved Amount</label>
+              <input type="number" id="goalSaved" />
+              <span class="error" id="savedError"></span>
+            </div>
+
+            <div class="field">
+              <label>Deadline</label>
+              <input type="date" id="goalDeadline" />
+            </div>
+
+            <div class="field">
+              <label>Note</label>
+              <input type="text" id="goalNote" />
+            </div>
+          </div>
+
+          <button id="addGoalBtn">Add Goal</button>
+        </div>
+
+        <!-- GOALS -->
+        <div class="table-box">
+          <h2>My Goals</h2>
+
+          <p id="noGoals" class="empty-msg">No goals yet.</p>
+
+          <div id="goalsGrid" class="goals-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="bottom-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="bills.html">Bills</a>
+      <a href="goals.html" class="active">Goals</a>
+      <a href="borrow.html">Borrow</a>
+      <a href="income.html">Income</a>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/goals.js"></script>
+  </body>
+</html>

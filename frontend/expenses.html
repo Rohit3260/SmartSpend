@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expenses - SmartSpend</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2>SmartSpend</h2>
+
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="income.html">Extra Income</a>
+          <a href="expenses.html" class="active">Expenses</a>
+          <a href="bills.html">Bills</a>
+          <a href="goals.html">Goals</a>
+          <a href="borrow.html">Borrow / Lend</a>
+          <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="profile.html"><span id="sidebarName">User</span></a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <!-- TOP -->
+        <div class="topbar">
+          <div>
+            <h1>Expenses</h1>
+            <p>Track your daily spending</p>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-box">
+          <h2>Add Expense</h2>
+
+          <div id="alertBox" class="alert hidden"></div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Amount</label>
+              <input type="number" id="expAmount" />
+              <span class="error" id="amountError"></span>
+            </div>
+
+            <div class="field">
+              <label>Category</label>
+              <select id="expCategory">
+                <option value="">Select</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Health">Health</option>
+                <option value="Education">Education</option>
+                <option value="Bills">Bills</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="error" id="categoryError"></span>
+            </div>
+
+            <div class="field">
+              <label>Date</label>
+              <input type="date" id="expDate" />
+              <span class="error" id="dateError"></span>
+            </div>
+
+            <div class="field">
+              <label>Note</label>
+              <input type="text" id="expNote" />
+            </div>
+          </div>
+
+          <button id="addExpenseBtn">Add Expense</button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-box">
+          <div class="table-top">
+            <h2>All Expenses</h2>
+
+            <div>
+              <label>Sort</label>
+              <select id="sortBy">
+                <option value="date-desc">Newest</option>
+                <option value="date-asc">Oldest</option>
+                <option value="amount-desc">High to Low</option>
+                <option value="amount-asc">Low to High</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="noExpenses">No expenses yet.</p>
+
+          <table id="expenseTable" class="hidden">
+            <thead>
+              <tr>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Note</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="expenseBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="bottom-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="expenses.html" class="active">Expenses</a>
+      <a href="bills.html">Bills</a>
+      <a href="goals.html">Goals</a>
+      <a href="borrow.html">Borrow</a>
+      <a href="income.html">Income</a>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/expenses.js"></script>
+  </body>
+</html>
