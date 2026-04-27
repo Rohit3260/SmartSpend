@@ -142,8 +142,8 @@ async function loadDashboard() {
     }
 
     //  FINAL
-    var totalBalance = totalInc - totalExp + pendingReceive - pendingReturn;
-    var remaining = totalBalance - goalTotal;
+    var totalBalance = totalInc;
+    var remaining = totalInc - totalExp + pendingReceive - pendingReturn;
 
     document.getElementById("totalIncome").textContent = toINR(totalBalance);
     document.getElementById("totalExpenses").textContent = toINR(totalExp);
@@ -239,7 +239,7 @@ async function loadDashboard() {
       for (var i = 0; i < expenses.length; i++) {
         all.push({
           type: "Expense",
-          name: expenses[i].category || "Expense", // ✅ FIX HERE
+          name: expenses[i].category || "Expense", 
           amount: parseFloat(expenses[i].amount || 0),
           date: expenses[i].date || new Date().toISOString(),
         });
